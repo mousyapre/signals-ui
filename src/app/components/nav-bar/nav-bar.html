@@ -1,0 +1,40 @@
+<nav class="navbar">
+  <!-- Left -->
+  <div class="nav-section left">
+    <i class="material-icons">home</i>
+  </div>
+
+  <!-- Center -->
+  <div class="nav-section center">
+    <span class="app-name">MyApp</span>
+  </div>
+
+  <!-- Right -->
+  <div class="nav-section right">
+    <div *ngIf="isLoggedIn">
+      <div class="profile-wrapper" (click)="$event.stopPropagation(); menuOpen = !menuOpen" 
+     (mouseenter)="menuOpen = true" 
+     (mouseleave)="menuOpen = false">
+
+  <i class="material-icons icon-btn" title="Profile">account_circle</i>
+
+  <div class="dropdown" *ngIf="menuOpen">
+    <a class="dropdown-item" routerLink="/profile" (click)="$event.stopPropagation(); menuOpen = false">
+      Profile
+    </a>
+    <button class="dropdown-item" (click)="logout(); menuOpen = false">
+      Logout
+    </button>
+  </div>
+</div>
+
+    </div>
+    <div *ngIf="!isLoggedIn">
+      <i 
+        class="material-icons icon-btn"
+        title="Login">
+        <a href="/login">login</a>
+      </i>
+      </div>
+  </div>
+</nav>

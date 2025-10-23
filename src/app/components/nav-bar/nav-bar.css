@@ -1,0 +1,95 @@
+/* Make sure the navbar spans full width and stays on top */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #1976d2;
+  color: white;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Each section (left, center, right) */
+.nav-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Center section should expand to fill available space */
+.nav-section.center {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Icons */
+.material-icons {
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.material-icons:hover {
+  transform: scale(1.1);
+}
+
+/* App name text */
+.app-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .navbar {
+    height: 50px;
+    padding: 0 12px;
+  }
+
+  .app-name {
+    font-size: 1.2rem;
+  }
+
+  .material-icons {
+    font-size: 24px;
+  }
+}
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  min-width: 120px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
