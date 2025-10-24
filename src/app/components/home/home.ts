@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
   constructor(private router: Router) {}
 
-  goToLogin() {
-    this.router.navigate(['/login']);
+  goToList() {
+    this.router.navigate(['/list']);
   }
   
 }

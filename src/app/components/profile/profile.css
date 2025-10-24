@@ -1,0 +1,96 @@
+.profile-container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333333;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Field rows */
+.profile-field {
+  display: flex;
+  flex-direction: column; /* stack label on top of value */
+  margin-bottom: 18px;
+}
+
+/* Labels */
+.profile-field label {
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+/* Values */
+.profile-field span {
+  font-size: 15px;
+  color: #333333;
+  padding: 8px 10px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Password field */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 80%;
+  padding: 8px 35px 8px 10px; /* space for eye button */
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.password-field input:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+}
+
+/* Eye button inside password */
+.eye-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555555;
+}
+
+.eye-btn:hover {
+  color: #007bff;
+}
+
+/* Error message */
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+  .profile-container {
+    padding: 25px 15px;
+  }
+}

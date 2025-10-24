@@ -7,6 +7,12 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class Auth {
+  
+  storeToken(token: any, userId: any) {
+    sessionStorage.setItem('access_token', token);
+    sessionStorage.setItem('user_id', userId);
+    return true;
+  }
 
   private baseUrl = 'http://localhost:8080';
 
@@ -23,7 +29,7 @@ export class Auth {
   }
   // POST username + password to backend to get JWT token
   login(username: string, password: string): Observable<any> {
-    const url = `${this.baseUrl}/users/id`; // or your /login endpoint
+    const url = `${this.baseUrl}/users/auth`; // or your /login endpoint
     const params = new HttpParams()
       .set('username', username)
       .set('password', password);
@@ -32,7 +38,10 @@ export class Auth {
 
   // optionally get token from session
   getToken(): string | null {
-    return sessionStorage.getItem('access_token');
+    if (typeof window !== 'undefined' && typeof sessionStorage !== 'undefined') {
+      return sessionStorage.getItem('access_token');
+    }
+    return null;
   }
 
   logout(): void {
@@ -40,6 +49,7 @@ export class Auth {
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    return !!token;  // true if token exists
   }
 }

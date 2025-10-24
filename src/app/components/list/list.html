@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>User List</h2>
+
+  <table *ngIf="!loading && users.length > 0 ; else noData">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>User Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td><a [routerLink]="['/profile', user.userId]"><i class="material-icons icon-btn" title="Profile">account_circle</i></a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+  <p *ngIf="loading">Loading users...</p>
+  <p *ngIf="!loading && !errorMessage && users.length === 0">No users available.</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </ng-template>
+</div>

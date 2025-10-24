@@ -1,0 +1,40 @@
+<div class="profile-container" *ngIf="user.userId; else loading">
+  <h2>User Profile</h2>
+
+  <div class="profile-field">
+    <label>ID:</label>
+    <span>{{ user.userId }}</span>
+  </div>
+
+  <div class="profile-field">
+    <label>Username:</label>
+    <span>{{ user.username }}</span>
+  </div>
+
+  <div class="profile-field">
+    <label>Email:</label>
+    <span>{{ user.email }}</span>
+  </div>
+
+  <div class="profile-field password-field">
+    <label>Password:</label>
+    <input 
+      [type]="showPassword ? 'text' : 'password'" 
+      [value]="user.password" 
+      readonly
+    />
+    <button type="button" (click)="togglePassword()" class="eye-btn">
+      {{ showPassword ? '🙈' : '👁️' }}
+    </button>
+  </div>
+
+  <div class="profile-field">
+    <label>Role:</label>
+    <span>{{ user.role }}</span>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p *ngIf="!errorMessage">Loading profile...</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</ng-template>
